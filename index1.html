@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu về HTML5</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #e34f26;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #e34f26;
+            border-bottom: 2px solid #e34f26;
+            padding-bottom: 8px;
+        }
+
+        code {
+            background-color: #f1f1f1;
+            padding: 3px 6px;
+            border-radius: 4px;
+            color: #c7254e;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        .highlight {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-left: 5px solid #e34f26;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background-color: white;
+            color: #e34f26;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>HTML5</h1>
+        <p>Ngôn ngữ đánh dấu nền tảng của World Wide Web</p>
+
+        <a href="index.html" class="back">← Quay lại trang chính</a>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>1. HTML là gì?</h2>
+
+            <p>
+                <strong>HTML</strong> (HyperText Markup Language) là ngôn ngữ
+                đánh dấu được sử dụng để xây dựng cấu trúc và nội dung của
+                các trang web.
+            </p>
+
+            <p>
+                HTML không phải là ngôn ngữ lập trình. Nó sử dụng các
+                <strong>thẻ (tag)</strong> để mô tả cho trình duyệt biết
+                nội dung trên trang web được tổ chức như thế nào.
+            </p>
+
+            <div class="highlight">
+                <strong>Ví dụ:</strong> HTML có thể được sử dụng để tạo
+                tiêu đề, đoạn văn, hình ảnh, liên kết, bảng, biểu mẫu
+                và nhiều thành phần khác trên trang web.
+            </div>
+        </section>
+
+        <section>
+            <h2>2. HTML5 là gì?</h2>
+
+            <p>
+                <strong>HTML5</strong> là phiên bản hiện đại của HTML,
+                được thiết kế để hỗ trợ tốt hơn cho các ứng dụng web
+                hiện đại và nội dung đa phương tiện.
+            </p>
+
+            <p>
+                HTML5 cung cấp nhiều thẻ mới giúp xây dựng trang web
+                có cấu trúc rõ ràng và có ý nghĩa hơn.
+            </p>
+
+            <ul>
+                <li><code>&lt;header&gt;</code> – Phần đầu của trang.</li>
+                <li><code>&lt;nav&gt;</code> – Khu vực điều hướng.</li>
+                <li><code>&lt;main&gt;</code> – Nội dung chính.</li>
+                <li><code>&lt;section&gt;</code> – Một khu vực nội dung.</li>
+                <li><code>&lt;article&gt;</code> – Một nội dung độc lập.</li>
+                <li><code>&lt;footer&gt;</code> – Phần cuối trang.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Cấu trúc cơ bản của một trang HTML</h2>
+
+            <p>
+                Một tài liệu HTML cơ bản thường có cấu trúc như sau:
+            </p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Trang web của tôi&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Xin chào!&lt;/h1&gt;
+    &lt;p&gt;Đây là trang web đầu tiên của tôi.&lt;/p&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Một số thẻ HTML phổ biến</h2>
+
+            <ul>
+                <li>
+                    <strong>Tiêu đề:</strong>
+                    <code>&lt;h1&gt;</code> đến <code>&lt;h6&gt;</code>
+                </li>
+
+                <li>
+                    <strong>Đoạn văn:</strong>
+                    <code>&lt;p&gt;</code>
+                </li>
+
+                <li>
+                    <strong>Liên kết:</strong>
+                    <code>&lt;a&gt;</code>
+                </li>
+
+                <li>
+                    <strong>Hình ảnh:</strong>
+                    <code>&lt;img&gt;</code>
+                </li>
+
+                <li>
+                    <strong>Danh sách:</strong>
+                    <code>&lt;ul&gt;</code>,
+                    <code>&lt;ol&gt;</code>,
+                    <code>&lt;li&gt;</code>
+                </li>
+
+                <li>
+                    <strong>Bảng:</strong>
+                    <code>&lt;table&gt;</code>
+                </li>
+
+                <li>
+                    <strong>Biểu mẫu:</strong>
+                    <code>&lt;form&gt;</code>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. HTML kết hợp với CSS và JavaScript</h2>
+
+            <p>
+                Trong phát triển web, HTML thường được sử dụng cùng với
+                <strong>CSS</strong> và <strong>JavaScript</strong>.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>HTML:</strong> Xây dựng cấu trúc và nội dung.
+                </li>
+
+                <li>
+                    <strong>CSS:</strong> Thiết kế giao diện, màu sắc,
+                    bố cục và hiệu ứng.
+                </li>
+
+                <li>
+                    <strong>JavaScript:</strong> Tạo tính tương tác và
+                    xử lý các hành vi trên trang web.
+                </li>
+            </ul>
+
+            <div class="highlight">
+                Có thể hiểu đơn giản:
+                <strong>HTML là bộ khung</strong>,
+                <strong>CSS là phần trang trí</strong> và
+                <strong>JavaScript là phần tương tác</strong>
+                của một trang web.
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Ưu điểm của HTML5</h2>
+
+            <ul>
+                <li>Cú pháp đơn giản và dễ học.</li>
+                <li>Được hỗ trợ bởi hầu hết các trình duyệt hiện đại.</li>
+                <li>Hỗ trợ nội dung đa phương tiện như video và audio.</li>
+                <li>Cung cấp các thẻ semantic giúp cấu trúc trang rõ ràng.</li>
+                <li>Phù hợp để xây dựng các website hiện đại.</li>
+                <li>Có thể kết hợp dễ dàng với CSS và JavaScript.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Kết luận</h2>
+
+            <p>
+                HTML là kiến thức nền tảng quan trọng đối với bất kỳ ai
+                muốn học phát triển web. Việc nắm vững HTML giúp chúng ta
+                hiểu cách một trang web được xây dựng và tổ chức.
+            </p>
+
+            <p>
+                Sau khi học HTML, bạn có thể tiếp tục tìm hiểu
+                <strong>CSS</strong> để thiết kế giao diện và
+                <strong>JavaScript</strong> để tạo ra các trang web
+                có tính tương tác cao.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Trang giới thiệu HTML5</p>
+    </footer>
+
+</body>
+</html>
