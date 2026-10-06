@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Lab 1 — My Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .profile {
+            text-align: center;
+            padding: 10px 20px 30px;
+        }
+        /* Khung ảnh */
+        .avatar-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        /* Ảnh đại diện */
+        #avatar {
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 5px solid #667eea;
+
+            display: block;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            background: #f1f1f1;
+        }
+        #avatar:hover {
+            transform: scale(1.05);
+            opacity: 0.85;
+        }
+        /* Input chọn file được ẩn */
+        #avatarInput {
+            display: none;
+        }
+        /* Tiêu đề */
+        .profile h1 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 32px;
+        }
+        /* Mô tả */
+        .profile p {
+            color: #764ba2;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: left;
+        }
+
+        .info p {
+            margin: 8px 0;
+        }
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            margin: 4px;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+        .badge:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .status {
+            color: #38a169;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="avatar-wrapper">
+
+                <!-- Click vào ảnh để chọn ảnh -->
+                <label for="avatarInput">
+                    <img
+                        id="avatar"
+                        src="https://placehold.co/150x150/667eea/ffffff?text=Avatar"
+                        alt="Ảnh đại diện"
+                    >
+                </label>
+                <!-- Input chọn ảnh -->
+                <input
+                    type="file"
+                    id="avatarInput"
+                    accept="image/*"
+                >
+            </div>
+            <h1>Hello, DevOps!</h1>
+            <p>
+                Lab 1 — Trải nghiệm CI/CD Pipeline
+            </p>
+        </div>
+        <div class="info">
+            <p>
+                <strong>Bài học:</strong>
+                DevOps Lab 1 — Tổng quan
+            </p>
+            <p>
+                <strong>Deploy bởi:</strong>
+                GitHub Actions CI/CD
+            </p>
+            <p>
+                <strong>Ngày deploy:</strong>
+                <span id="date"></span>
+            </p>
+            <p>
+                <strong>Pipeline status:</strong>
+                <span class="status">
+                    Automated
+                </span>
+            </p>
+        </div>
+        <div>
+            <a href="index1.html" class="badge">
+                HTML5
+            </a>
+            <a href="index2.html" class="badge">
+                CSS3
+            </a>
+            <a href="index3.html" class="badge">
+                Git
+            </a>
+            <a href="index4.html" class="badge">
+                GitHub Actions
+            </a>
+            <a href="index5.html" class="badge">
+                CI/CD
+            </a>
+            <a href="index6.html" class="badge">
+                DevOps
+            </a>
+        </div>
+        <div class="footer">
+            <p>
+                Deployed automatically via GitHub Actions Pipeline
+            </p>
+            <p>
+                Push code → CI Build → Auto Deploy → Live!
+            </p>
+        </div>
+    </div>
+    <script>
+    // Hiển thị ngày hiện tại
+    document.getElementById('date').textContent =
+        new Date().toLocaleDateString('vi-VN');
+
+    // Lấy input chọn ảnh
+    const avatarInput = document.getElementById('avatarInput');
+
+    // Lấy thẻ img
+    const avatar = document.getElementById('avatar');
+
+    // ==============================
+    // 1. LẤY AVATAR ĐÃ LƯU KHI RELOAD
+    // ==============================
+    const savedAvatar = localStorage.getItem('avatar');
+
+    if (savedAvatar) {
+        avatar.src = savedAvatar;
+    }
+
+    // ==============================
+    // 2. KHI NGƯỜI DÙNG CHỌN ẢNH
+    // ==============================
+    avatarInput.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (file) {
+
+            // Kiểm tra file có phải ảnh không
+            if (!file.type.startsWith('image/')) {
+                alert('Vui lòng chọn một file ảnh!');
+                return;
+            }
+
+            // Đọc file ảnh
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                // Lấy dữ liệu ảnh
+                const imageData = e.target.result;
+
+                // Lưu ảnh vào trình duyệt
+                localStorage.setItem('avatar', imageData);
+
+                // Hiển thị ảnh
+                avatar.src = imageData;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+</body>
+</html>
